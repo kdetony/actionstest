@@ -1,5 +1,3 @@
-name: integracion continua prueba
-
 on: push 
 name: deploy
 jobs:
