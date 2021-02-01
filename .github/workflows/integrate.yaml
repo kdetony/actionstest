@@ -3,7 +3,7 @@ name: integracion continua prueba
 on: push 
 name: deploy
 jobs:
-  deploy1: 
+  deploy: 
     name: deployando
     runs-on: ubuntu-latest
     steps:
