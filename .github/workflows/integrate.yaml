@@ -2,7 +2,8 @@ name: integracion continua prueba
 
 on: push 
 name: deploy
-  deploy: 
+jobs:
+  deploy1: 
     name: deployando
     runs-on: ubuntu-latest
     steps:
@@ -16,5 +17,4 @@ name: deploy
         tag_with_ref: true
         tag_with_sha: true 
         tags: ${{ github.sha }}
-        
-          
+
