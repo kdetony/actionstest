@@ -16,18 +16,19 @@ jobs:
         tag_with_sha: true 
         tags: ${{ github.sha }}
      
-   production:
-      name: deploy app on docker
-             
-      steps:
-      - name: deployment on server docker 
-      - uses: appleboy/ssh-action@master
-        with:
-          HOST: ${{ secrets.HOST }}    
-          USERNAME: ${{ secrets.USERNAME }}
-          KEY: ${{ secrets.KEY }} 
-          PORT: ${{ secrets.PORT  }}
-          script: | 
+  production:
+    name: deploy app on docker
+    runs-on: ubnutu-latest
+    
+    steps:
+    - name: deployment on server docker 
+    - uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}    
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }} 
+        port: ${{ secrets.PORT  }}
+        script: | 
             docker rm -fv ${{ github.repository_owner }}
             docker run -dit -p 80:80 --restart always ---name cont_web $(echo $${{ github.repository }}   
 
