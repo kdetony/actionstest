@@ -18,7 +18,7 @@ jobs:
      
   production:
     name: deploy app on docker
-    runs-on: ubnutu-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: deployment on server docker 
