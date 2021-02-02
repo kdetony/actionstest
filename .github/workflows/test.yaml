@@ -4,6 +4,7 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build image app
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -42,7 +43,7 @@ jobs:
            port: ${{ secrets.PORT  }}
            passphrase: ${{ secrets.PASS }}
            script: | 
-              docker rm -fv ${{ github.repository }}
+              docker rm -fv $(docker ps -qa)
 
        - name: Login dockerhub 
          run: 
@@ -50,10 +51,10 @@ jobs:
     
        - name: Download Image - Pull
          run: 
-            docker pull ${{ github.repository }}
+            docker pull farahblog/actionsapp:latest
            
        - name: Iniciando Contenedor      
          run:     
-            docker run -dit -p 80:80 --restart always --name cont_web ${{ github.repository }}       
+            docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest      
         
         
