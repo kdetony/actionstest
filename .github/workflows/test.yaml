@@ -43,7 +43,7 @@ jobs:
            port: ${{ secrets.PORT  }}
            passphrase: ${{ secrets.PASS }}
            script: | 
-              docker rm -fv $(docker ps -qa)
+              echo "deployando en el servidor"
 
        - name: Login dockerhub 
          run: 
