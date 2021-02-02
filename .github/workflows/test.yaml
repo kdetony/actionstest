@@ -55,6 +55,6 @@ jobs:
            
        - name: Iniciando Contenedor      
          run:     
-            docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest      
+            docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest    
         
         
