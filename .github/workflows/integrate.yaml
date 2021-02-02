@@ -32,5 +32,5 @@ jobs:
         script: | 
             docker rm -fv ${{ github.repository_owner }}
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker run -dit -p 80:80 --restart always ---name cont_web $(echo $${{ github.repository }}   
+            docker run -dit -p 80:80 --restart always ---name cont_web $${{ github.repository }}   
 
