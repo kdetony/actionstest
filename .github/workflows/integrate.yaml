@@ -30,7 +30,12 @@ jobs:
         port: ${{ secrets.PORT  }}
         passphrase: ${{ secrets.PASS }}
         script: | 
-            docker rm -fv ${{ github.repository_owner }}
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker rm -fv ${{ github.repository }}
+    - name: Descargando imagen docker 
+      run: 
+           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+           
+    - name: Iniciando Contenedor      
+      run:     
             docker run -dit -p 80:80 --restart always --name cont_web $${{ github.repository }}   
 
