@@ -32,10 +32,11 @@ jobs:
         script: | 
             docker rm -fv ${{ github.repository }}
     - name: Descargando imagen docker 
-      run: 
+      run: |
            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+           docker pull ${{ github.repository  }}
            
     - name: Iniciando Contenedor      
       run:     
-            docker run -dit -p 80:80 --restart always --name cont_web $${{ github.repository }}   
+            docker run -dit -p 80:80 --restart always --name cont_web ${{ github.repository }}   
 
