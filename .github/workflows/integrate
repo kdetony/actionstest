@@ -38,7 +38,7 @@ jobs:
     
     - name: Download Image - Pull
       run: 
-            docker pull ${{ github.repository  }}
+            docker pull ${{ github.repository }}
            
     - name: Iniciando Contenedor      
       run:     
