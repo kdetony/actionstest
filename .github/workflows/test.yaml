@@ -42,18 +42,7 @@ jobs:
            passphrase: ${{ secrets.PASS }}
            script: | 
               mkdir -p /root/deploy
-              docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest
-              
-       - name: Login dockerhub 
-         run: 
-              docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+              docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest            
     
-       - name: Download Image - Pull
-         run: 
-            docker pull farahblog/actionsapp:latest
-           
-       - name: Iniciando Contenedor      
-         run:     
-            docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest    
         
         
