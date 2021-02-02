@@ -3,4 +3,4 @@ RUN yum -y install httpd
 WORKDIR /var/www/html/ 
 COPY index.html . 
 EXPOSE 80
-CMD ["acpachectl -DFOREGROUND"]
+CMD ["acpachectl", "-D","FOREGROUND"]
