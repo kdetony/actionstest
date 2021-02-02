@@ -30,8 +30,7 @@ jobs:
   production:
        name: Deploy APP on Server
        runs-on: ubuntu-latest
-       needs: [build]
-    
+           
        steps:
        - name: Deployment on server docker 
          uses: appleboy/ssh-action@master
