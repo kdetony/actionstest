@@ -2,7 +2,7 @@ name: deployando github actions
 on: push 
 jobs:
   deploy: 
-    name: deployando
+    name: Build Image
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: deployment on server docker 
+    - name: Deployment on server docker 
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}    
