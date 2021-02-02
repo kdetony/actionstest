@@ -42,7 +42,6 @@ jobs:
            passphrase: ${{ secrets.PASS }}
            script: | 
               mkdir -p /root/deploy
-              docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
               docker run -dit -p 80:80 --restart always --name cont_web farahblog/actionsapp:latest
               
        - name: Login dockerhub 
