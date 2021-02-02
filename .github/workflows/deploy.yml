@@ -38,7 +38,7 @@ jobs:
     
     - name: Download Image - Pull
       run: 
-            docker pull ${{ github.repository }}:${{ github.sha }}
+            docker pull kdetony/${{ github.repository }}:${{ github.sha }}
            
     - name: Iniciando Contenedor      
       run:     
