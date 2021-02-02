@@ -23,9 +23,7 @@ jobs:
         with:
           push: true
           tags: farahblog/actionsapp:latest
-          build-args: |
-            arg1=value1
-            arg2=value2
+     
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
         
@@ -44,7 +42,7 @@ jobs:
            port: ${{ secrets.PORT  }}
            passphrase: ${{ secrets.PASS }}
            script: | 
-              echo "deployando en el servidor"
+              mkdir -p /root/deploy
 
        - name: Login dockerhub 
          run: 
