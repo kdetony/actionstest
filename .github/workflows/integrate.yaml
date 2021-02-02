@@ -2,7 +2,7 @@ name: deployando github actions
 on: push 
 jobs:
   deploy: 
-    name: Build Image
+    name: Build Image App
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -17,7 +17,7 @@ jobs:
         tags: ${{ github.sha }}
      
   production:
-    name: deploy app on docker
+    name: Deploy APP on Server
     runs-on: ubuntu-latest
     
     steps:
@@ -31,10 +31,14 @@ jobs:
         passphrase: ${{ secrets.PASS }}
         script: | 
             docker rm -fv ${{ github.repository }}
-    - name: Descargando imagen docker 
-      run: |
-           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-           docker pull ${{ github.repository  }}
+
+    - name: Login dockerhub 
+      run: 
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Download Image - Pull
+      run: 
+            docker pull ${{ github.repository  }}
            
     - name: Iniciando Contenedor      
       run:     
