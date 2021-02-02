@@ -28,7 +28,7 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
         
-    production:
+  production:
        name: Deploy APP on Server
        runs-on: ubuntu-latest
     
